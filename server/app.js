@@ -1,9 +1,10 @@
 const express = require('express')
 const app = express()
+const cors = require('cors')
+const bodyParser = require('body-parser')
 
-app.get('/', (req, res) => {
-  res.status(200)
-  res.send('Home page!')
-})
+app.use(cors())
+
+app.use(bodyParser.json())
 
 module.exports = app
