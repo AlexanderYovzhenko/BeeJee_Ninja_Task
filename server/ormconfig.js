@@ -5,15 +5,9 @@ const config = {
   username: 'postgres',
   password: 'postgres',
   database: 'postgres',
-  dropSchema: false,
   logging: true,
-  synchronize: false,
+  synchronize: true,
   entities: ['src/model.js'],
-  migrationsRun: true,
-  migrations: ['src/migrations/*.js'],
-  cli: {
-    migrationsDir: 'src/migrations',
-  },
 }
 
 module.exports = config
