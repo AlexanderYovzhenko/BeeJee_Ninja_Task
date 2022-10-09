@@ -1,6 +1,20 @@
 const server = require('./app')
-const port = 4000
+const { createConnection } = require('typeorm')
+const config = require('./ormconfig')
 
-server.listen(port, () => {
-  console.log(`Server is running on port ${port}`)
-})
+const PORT = 3000
+
+
+const startServer = async () => {
+  try {
+    await createConnection(config)
+    server.listen(PORT, '0.0.0.0', () =>
+      console.info(`Server is running on port ${PORT}`)
+    );
+  } catch (err) {
+    console.error(err)
+    process.exit(1)
+  }
+};
+
+startServer()

@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "start:dev": "nodemon server.js"
+    "start:dev": "nodemon server.js",
+    "migrations:run": "npm run typeorm -- migration:run",
+    "migration:generate": "npm run typeorm migration:generate -- -n migration",
+    "typeorm": "npx node --require --config src/ormconfig.js"
   },
   "keywords": [
     "server",
@@ -21,6 +24,8 @@
     "body-parser": "^1.20.1",
     "cors": "^2.8.5",
     "express": "^4.18.1",
-    "jsonwebtoken": "^8.5.1"
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.8.0",
+    "typeorm": "^0.3.10"
   }
 }
