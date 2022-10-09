@@ -27,9 +27,9 @@ router.put('/tasks', async(req, res) => {
 
   if (await verifyToken(authorization)) {
     const { id } = req.query
-    const updateTask = await putTask(id, req.body)
+    await putTask(id, req.body)
     res.header("Access-Control-Allow-Origin", "*")
-    res.status(201).send(updateTask)
+    res.status(201).send({ id, ...req.body })
   } else {
     res.status(403).send('not authorization')
   }
