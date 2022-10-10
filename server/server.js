@@ -8,7 +8,7 @@ const PORT = 3000
 const startServer = async () => {
   try {
     await createConnection(config)
-    server.listen(PORT, '0.0.0.0', () =>
+    server.listen(process.env.PORT || PORT, '0.0.0.0', () =>
       console.info(`Server is running on port ${PORT}`)
     );
   } catch (err) {
