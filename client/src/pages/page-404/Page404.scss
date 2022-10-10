@@ -1,0 +1,28 @@
+.page404{
+  margin-top: 50px;
+  text-align: center;
+
+  .error404 {
+    font-size: 100px;
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px auto;
+    padding: 5px 10px 5px 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0065ff;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s linear;
+
+    &:hover {
+      background-color: #024dbe;
+    }
+   }
+}
