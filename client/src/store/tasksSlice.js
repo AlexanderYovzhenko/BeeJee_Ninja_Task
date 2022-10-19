@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
+  addTask,
   getTasks,
 } from '../api/tasks';
 
@@ -24,6 +25,14 @@ export const tasksSlice = createSlice({
     [getTasks.pending.type]: (state) => {
     },
     [getTasks.rejected.type]: (state, action) => {
+    },
+    [addTask.fulfilled.type]: (state, action) => {
+      const { response } = action.payload;
+      state.tasks.push(response);
+    },
+    [addTask.pending.type]: (state) => {
+    },
+    [addTask.rejected.type]: (state, action) => {
     },
   },
 });
