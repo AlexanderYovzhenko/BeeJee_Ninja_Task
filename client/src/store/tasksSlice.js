@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import {
   addTask,
   getTasks,
+  updateTask,
 } from '../api/tasks';
 
 
@@ -34,9 +35,17 @@ export const tasksSlice = createSlice({
     },
     [addTask.rejected.type]: (state, action) => {
     },
+    [updateTask.fulfilled.type]: (state, action) => {
+      const { response } = action.payload;
+      state.tasks = state.tasks.map((task) => task.id === response.id ? response : task);
+    },
+    [updateTask.pending.type]: (state) => {
+    },
+    [updateTask.rejected.type]: (state, action) => {
+    },
   },
 });
 
-export const { changeColumnId, resetCreateNewTask, resetUpdateTask, setTasks } = tasksSlice.actions;
+export const { setTasks } = tasksSlice.actions;
 
 export default tasksSlice.reducer;
